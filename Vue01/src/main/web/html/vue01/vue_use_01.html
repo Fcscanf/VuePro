@@ -14,13 +14,18 @@
 
 <!--v-event-->
 <div id="root-event">
+    <!--阻止事件传播-阻止事件冒泡-->
     <div @click="showA()" class="a">A
         <div @click="showB()" class="b">B
-            <div @click="showC()" class="c">C
-            </div>
-            <div></div>
+            <div @click="showC()" class="c">C</div>
+            <div @click.stop="showC()" class="c">C Stop</div>
         </div>
     </div>
+<!--    阻止默认行为-->
+    <a href="http://www.baidu.com" @click="showA()">clickA</a>
+    <a href="http://www.baidu.com" @click.prevent="showA()">clickB</a>
+<!--    只执行一次-->
+    <button @click.once="showB()">Once</button>
 </div>
 
 <!--tab-->
