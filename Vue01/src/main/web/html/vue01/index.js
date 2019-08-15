@@ -1,6 +1,22 @@
 // 创建Vue实例
 window.onload=function () {
 
+    new Vue({
+        el: '#root-bind',
+        data: {
+            title: '图片',
+            flag: true,
+            flag1: false,
+            a1: 'a1',
+            a2: 'a2',
+            a3: 'a3',
+            a4: {color:'#f00'},
+            a5: {color:'#000'},
+            url:'https://cn.vuejs.org/images/logo.png',
+            url1:''
+        }
+    });
+
     // for的使用
     new Vue({
         el: '#for',
