@@ -18,14 +18,14 @@ window.onload=function () {
                 {name: "Role", state: 0}
             ]
         },
-        method:{
+        methods:{
             add:function (name) {
                 if (name) {
                     this.lists.unshift({name:name, state:'0'});
                     this.text = '';
                 }
             },
-            del:function(index) {
+            del(index) {
                 this.lists.splice(index, 1);
             }
         }
