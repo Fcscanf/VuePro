@@ -1,6 +1,25 @@
 // 创建Vue实例
 window.onload=function () {
 
+    new Vue({
+        el: '#root-model',
+        data:{
+            age: 13,
+            che: false,
+            arr: [],
+            radioV: "",
+            items:[
+                {text:'跳舞', value:'0'},
+                {text:'唱歌', value:'1'},
+                {text:'Rap', value:'2'}
+            ],
+            selected: '2'
+        },
+        methods:{
+
+        }
+    });
+
     // 闪烁效果实现
     new Vue({
         el: '#root-light',
