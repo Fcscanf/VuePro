@@ -12,6 +12,26 @@
 </head>
 <body>
 
+<!--子组件和父组件通信-->
+<div id="com-c">
+    <com-c-1></com-c-1>
+</div>
+<template id="com-c-1">
+    <div>
+        <h3>我是父组件，访问我的数据，姓名：{{pname}}</h3>
+        <h3>我是父组件，访问子的数据，姓名：{{cname}} ,年龄：{{cage}}</h3>
+<!--        子组件直接植入父组件中:可以使用绑定关键字或者简写进行绑定操作-->
+        <com-c-2 v-bind:page="page" :pname="pname" v-on:e-com-c-2="handleSubData"></com-c-2>
+    </div>
+</template>
+<template id="com-c-2">
+    <div>
+        <h3>我是子组件，访问父组件的Name：{{pname}}，Age{{page}}</h3>
+        <h3>我是子组件，访问我的数据，姓名：{{cname}},Age:{{cage}}</h3>
+        <button @click="sendMsg">SendMsg</button>
+    </div>
+</template>
+
 <div id="root-p">
     <com-k :name="name"></com-k>
 <!----组件通信：父-》子-->

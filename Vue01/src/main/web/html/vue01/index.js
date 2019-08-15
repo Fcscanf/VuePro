@@ -1,6 +1,52 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 组件通信-子到父
+    new Vue({
+        el: '#com-c',
+        data:{
+        },
+        methods:{
+        },
+        components:{
+            'com-c-1':{
+                template:'#com-c-1',
+                data:function () {
+                    return{
+                        pname:'parents',
+                        page: 18,
+                        cname: '',
+                        cage: ''
+                    }
+                },
+                methods:{
+                    handleSubData(name, age) {
+                        this.cname = name;
+                        this.cage = age;
+                    }
+                },
+                components:{
+                    'com-c-2':{
+                        template: '#com-c-2',
+                        data:function () {
+                            return{
+                                cname:'child',
+                                cage:20
+                            }
+                        },
+                        props:['pname', 'page'],
+                        methods:{
+                            sendMsg() {
+                                // 发送事件及参数
+                                this.$emit('e-com-c-2', this.cname, this.cage)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+
     Vue.component('com-k', {
         template:"<h2>全局组件{{name}}--{{msg}}</h2>",
         data:function () {
