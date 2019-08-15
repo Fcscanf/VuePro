@@ -1,6 +1,42 @@
 // 创建Vue实例
 window.onload=function () {
 
+    //全局组件
+    // 组件-方式一
+    var mCom = Vue.extend({
+        // 嵌入的模板必须使用外部标签封装起来，不能一级出现多个标签
+        template: '<div><h1>Hello Component</h1><div><h2>Tom</h2></div></div>'
+    });
+    // 命名规范-组件名用横线作连接符-，驼峰命名不易与Vue识别，容易报错，
+    Vue.component('helloWorld', mCom);
+    // 组件-方式二
+    Vue.component('hello', {
+        template: '<h3>Component</h3>'
+    });
+    new Vue({
+        el: '#root-component',
+        data:{
+        },
+        methods:{
+        },
+        // 局部组件
+        components:{
+            'component-cn':{
+                template:'<h3>局部组件</h3>'
+            },
+            'com-con' : {
+                // 引用定义的组件模板
+                template: "#com-con",
+                data:function () {
+                    return{
+                        title:'title',
+                        lists : [1, 2, 3, 4]
+                    }
+                }
+            }
+        }
+    });
+
     // 事件冒泡
     new Vue({
         el: '#root-event',

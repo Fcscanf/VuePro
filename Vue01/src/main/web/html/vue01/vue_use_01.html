@@ -12,6 +12,23 @@
 </head>
 <body>
 
+<!--v-component-->
+<div id="root-component">
+    <hello-world></hello-world>
+    <hello></hello>
+    <component-cn></component-cn>
+    <com-con></com-con>
+</div>
+<!--定义模板-->
+<template id="com-con">
+    <div>
+        <p>{{title}}</p>
+        <ul>
+            <li v-for="(v, i) in lists">{{v}}</li>
+        </ul>
+    </div>
+</template>
+
 <!--v-event-->
 <div id="root-event">
     <!--阻止事件传播-阻止事件冒泡-->
