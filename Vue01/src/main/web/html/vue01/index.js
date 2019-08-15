@@ -1,6 +1,20 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 闪烁效果实现
+    new Vue({
+        el: '#root-light',
+        data:{
+            msg: 'hello, it',
+            age: 23,
+            html: '<p>YT</p>'
+        },
+        methods:{
+
+        }
+    });
+
+    // 样式绑定实现
     new Vue({
         el: '#root-bind',
         data: {

@@ -11,6 +11,18 @@
 </head>
 <body>
 
+
+<!--闪烁效果实现-->
+<div id="root-light">
+    <div v-cloak>
+        {{msg}}--{{age}}
+    </div>
+<!--    值渲染,以文本形式解析-->
+    <div v-text="msg"></div>
+<!--    值渲染,以HTML形式解析-->
+    <div v-html="html"></div>
+</div>
+
 <!--v-bind-->
 <div id="root-bind">
     <img v-bind:src="url" width="100" height="100" :title="title">
