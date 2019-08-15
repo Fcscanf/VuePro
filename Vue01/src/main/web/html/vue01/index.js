@@ -1,5 +1,37 @@
 // 创建Vue实例
 window.onload=function () {
+
+    // for的使用
+    new Vue({
+        el: '#for',
+        data:{
+            msg:'Hello World',
+            age: 18,
+            flag:false,
+            arr:['aa', 'bb', 'cc'],
+            obj:{name:'Fcant', age:13},
+            lists:[
+                {name:'Take', id:11},
+                {name:'Fake', id:12},
+                {name:'TYou', id:13}
+            ]
+        },
+        methods:{
+            click:function () {
+                this.age = "20";
+            },
+            mouseover() {
+                this.age = "21";
+            },
+            mouseout() {
+                this.age = "22";
+            },
+            twoClick() {
+                this.age = "24";
+            }
+        }
+    });
+
     new Vue({
         el:"#root",
         data:{

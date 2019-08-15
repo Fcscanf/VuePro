@@ -10,6 +10,39 @@
 </head>
 <body>
 
+<!--v-for-->
+<div id="for">
+    <div>{{msg}}--{{age}}</div>
+    <ul>
+        <li v-for="(v, i) in arr">
+            {{v}}--{{i}}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="(v, key) in obj">
+            {{v}}--{{key}}
+        </li>
+    </ul>
+    <ul>
+        <li v-for="(v, key) in lists">
+            {{v}}--{{key}}--{{v.name}}
+        </li>
+    </ul>
+    <button v-on:click="click">点击</button>
+    <button v-on:mouseover="mouseover">mouseOver</button>
+    <button v-on:mouseout="mouseout">mouseOut</button>
+    <button @dblclick="twoClick">twoClick</button>
+<!--    隐藏显示内容-->
+    <button v-show="flag">是否显示</button>
+    <button v-show="age==17">是否显示年龄</button>
+<!--    使用if else-->
+    <p v-if="age==18">18</p>
+    <p v-else-if="age==20">20</p>
+    <p v-else>not</p>
+<!--    三目表达式-->
+    <p v-if="flag?age=18:age=20">{{age}}</p>
+</div>
+
 <div id="root">
     {{name}}
 </div>
