@@ -18,6 +18,7 @@
     <hello></hello>
     <component-cn></component-cn>
     <com-con></com-con>
+    <component-tab></component-tab>
 </div>
 <!--定义模板-->
 <template id="com-con">
@@ -26,6 +27,16 @@
         <ul>
             <li v-for="(v, i) in lists">{{v}}</li>
         </ul>
+    </div>
+</template>
+<template id="com-tab">
+    <div>
+        <ul class="tab-tit">
+            <li v-for="(v, i) in tabTitle" @click="cur1=i" :class="{active:cur1==i}">{{v}}</li>
+        </ul>
+        <div class="tab-content">
+            <div v-for="(v, i) in tabContent" v-show="cur1===i">{{v}}</div>
+        </div>
     </div>
 </template>
 

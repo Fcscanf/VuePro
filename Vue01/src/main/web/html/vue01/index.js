@@ -33,6 +33,16 @@ window.onload=function () {
                         lists : [1, 2, 3, 4]
                     }
                 }
+            },
+            'component-tab':{
+                template:"#com-tab",
+                data: function () {
+                    return{
+                        tabTitle: ['标题一', '标题二', '标题三'],
+                        tabContent: ['内容一', '内容二', '内容三'],
+                        cur1: 1
+                    }
+                }
             }
         }
     });
