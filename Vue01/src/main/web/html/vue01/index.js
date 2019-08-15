@@ -1,6 +1,24 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 事件冒泡
+    new Vue({
+        el: '#root-event',
+        data:{
+        },
+        methods:{
+            showA:function () {
+                console.log('aaaa');
+            },
+            showB() {
+                console.log('bbbb');
+            },
+            showC() {
+                console.log('cccc');
+            }
+        }
+    });
+
     // Tab
     new Vue({
         el: '#root-tab',

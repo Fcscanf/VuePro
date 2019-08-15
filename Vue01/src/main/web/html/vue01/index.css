@@ -1,3 +1,16 @@
+.a{
+    border: #f60 solid 1px;
+    width: 300px;
+}
+.b {
+    border: #fd7e14 solid 1px;
+    width: 200px;
+}
+.c {
+    border: #fd7e14 solid 1px;
+    width: 200px;
+}
+
 ul, li{
     padding: 0; margin: 0;
 }

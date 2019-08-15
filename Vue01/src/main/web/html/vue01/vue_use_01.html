@@ -12,6 +12,17 @@
 </head>
 <body>
 
+<!--v-event-->
+<div id="root-event">
+    <div @click="showA()" class="a">A
+        <div @click="showB()" class="b">B
+            <div @click="showC()" class="c">C
+            </div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
 <!--tab-->
 <div id="root-tab">
     <ul class="tab-tit">
