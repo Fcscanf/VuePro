@@ -1,11 +1,21 @@
 // 创建Vue实例
 window.onload=function () {
 
+    Vue.component('com-k', {
+        template:"<h2>全局组件{{name}}--{{msg}}</h2>",
+        data:function () {
+            return{
+                msg: '111'
+            }
+        },
+        props: ['name']
+    });
     // 组件通信--父-》子
     new Vue({
         el: '#root-p',
         data:{
-            msg: '信息'
+            msg: '信息',
+            name: 'Gh'
         },
         methods:{
         },
