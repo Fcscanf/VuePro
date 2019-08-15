@@ -1,6 +1,20 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // Tab
+    new Vue({
+        el: '#root-tab',
+        data:{
+            cur: 1,
+            tabTitle: ['标题一', '标题二', '标题三'],
+            tabContent: ['内容一', '内容二', '内容三'],
+            cur1: 1
+        },
+        methods:{
+        }
+    });
+
+    // 输入框值绑定,单选框,多选框,下拉框
     new Vue({
         el: '#root-model',
         data:{
@@ -16,7 +30,6 @@ window.onload=function () {
             selected: '2'
         },
         methods:{
-
         }
     });
 

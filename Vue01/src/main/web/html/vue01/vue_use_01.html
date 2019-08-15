@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <link href="https://cdn.bootcss.com/bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
@@ -10,6 +11,27 @@
 
 </head>
 <body>
+
+<!--tab-->
+<div id="root-tab">
+    <ul class="tab-tit">
+        <li @click="cur=0" :class="{active:cur==0}">标题1</li>
+        <li @click="cur=0" :class="{active:cur==1}">标题2</li>
+        <li @click="cur=0" :class="{active:cur==2}">标题3</li>
+    </ul>
+    <div class="tab-content">
+        <div v-show="cur==0">内容一</div>
+        <div v-show="cur==1">内容二</div>
+        <div v-show="cur==2">内容三</div>
+    </div>
+<!--    动态实现-->
+    <ul class="tab-tit">
+        <li v-for="(v, i) in tabTitle" @click="cur1=i" :class="{active:cur1==i}">{{v}}</li>
+    </ul>
+    <div class="tab-content">
+        <div v-for="(v, i) in tabContent" v-show="cur1===i">{{v}}</div>
+    </div>
+</div>
 
 <!--v-model-->
 <div id="root-model">
