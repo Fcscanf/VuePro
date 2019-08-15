@@ -1,6 +1,30 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 组件通信--父-》子
+    new Vue({
+        el: '#root-p',
+        data:{
+            msg: '信息'
+        },
+        methods:{
+        },
+        components:{
+            'p-com':{
+                template:"#p-com",
+                data:function () {
+                    return{
+                        title: '组件通信',
+                        lists: [1, 2, 3, 4, 5]
+                    }
+                },
+                props:['msg']
+            }
+
+        }
+    });
+
+    // component
     //全局组件
     // 组件-方式一
     var mCom = Vue.extend({

@@ -12,6 +12,20 @@
 </head>
 <body>
 
+<!----组件通信：父-》子-->
+<div id="root-p">
+<!--    子节点获取父节点的数据，子节点需要定义接收-->
+    <p-com :msg="msg"></p-com>
+</div>
+<template id="p-com">
+    <div>
+        <p>{{title}}--{{msg}}</p>
+        <ul>
+            <li v-for="(v, i) in lists">{{v}}</li>
+        </ul>
+    </div>
+</template>
+
 <!--v-component-->
 <div id="root-component">
     <hello-world></hello-world>
