@@ -1,6 +1,73 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 兄弟组件通信
+    // 定义空Vue对象用于接收数据
+    let Bus = new Vue();
+    let A = {
+        template:'#com-b-1',
+        data() {
+            return{
+                name:'aaaa'
+            }
+        },
+        methods:{
+            send() {
+                Bus.$emit('data-a', this.name)
+            }
+        }
+    };
+    let B = {
+        template:'#com-b-2',
+        data() {
+            return{
+                name:'bbbb'
+            }
+        },
+        methods:{
+            send() {
+                Bus.$emit('data-b', this.name)
+            }
+        }
+    };
+    let C = {
+        template:"#com-b-3",
+        data() {
+            return{
+                name:'',
+                nameA:'',
+                nameB:''
+            }
+        },
+        // 组件生命周期
+        mounted() {
+            Bus.$on('data-a', function (name) {
+                this.name=name;
+            });
+            Bus.$on('data-b', function (name) {
+                this.name=name;
+            });
+            Bus.$on('data-a', name => {
+                this.nameA = name;
+            });
+            Bus.$on('data-b', name => {
+                this.nameB = name;
+            })
+        }
+    };
+    new Vue({
+        el: '#com-brother',
+        data:{
+        },
+        methods:{
+        },
+        components:{
+            'com-b-1': A,
+            'com-b-2': B,
+            'com-b-3': C
+        }
+    });
+
     // 组件通信-子到父
     new Vue({
         el: '#com-c',

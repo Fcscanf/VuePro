@@ -12,6 +12,30 @@
 </head>
 <body>
 
+<!--兄弟组件通信-->
+<div id="com-brother">
+    <com-b-1></com-b-1>
+    <com-b-2></com-b-2>
+    <com-b-3></com-b-3>
+</div>
+<template id="com-b-1">
+    <div>
+        <h3>组件A:{{name}}</h3>
+        <button class="btn btn-success" @click="send">数据发送给C</button>
+    </div>
+</template>
+<template id="com-b-2">
+    <div>
+        <h3>组件B:{{name}}</h3>
+        <button class="btn btn-success" @click="send">数据发送给C</button>
+    </div>
+</template>
+<template id="com-b-3">
+    <div>
+        <h3>组件C接收的数据Name：{{nameA}}{{nameB}}</h3>
+    </div>
+</template>
+
 <!--子组件和父组件通信-->
 <div id="com-c">
     <com-c-1></com-c-1>
