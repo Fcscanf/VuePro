@@ -318,9 +318,9 @@ window.onload=function () {
         data: {
             message: '页面加载于 ' + new Date().toLocaleString(),
             obj: {name: "Tom"},
-            lists:[{name: "Phone", state: '0'},
-                {name: "Computer", state: '1'},
-                {name: "Role", state: '2'}
+            lists:[{name: "Phone", state: false},
+                {name: "Computer", state: false},
+                {name: "Role", state: true}
             ],
             count:0
         },
@@ -330,32 +330,33 @@ window.onload=function () {
         methods:{
             // 计算未采购数量
             countSum() {
-                this.count = 0;
+                /*this.count = 0;
                 this.lists.forEach((el, index)=>{
                     if (el.state === '0') {
                         this.count++;
                     }
-                })
+                })*/
+            //    使用过滤进行统计
+                this.count = this.lists.filter(item => !item.state).length;
             },
             add:function (name) {
                 if (name) {
-                    this.lists.unshift({name:name, state:'0'});
+                    this.lists.unshift({name:name, state:false});
                     this.text = '';
                     this.countSum();
                 }
             },
             del(index) {
                 this.lists.splice(index, 1);
+                this.countSum();
             }
         },
         filters:{
             stateFilter: function (type) {
                 switch (type) {
-                    case '0':
+                    case false:
                         return '未采购';
-                    case '1':
-                        return '采购中';
-                    case '2':
+                    case true:
                         return '已采购';
                     default:
                         return '';

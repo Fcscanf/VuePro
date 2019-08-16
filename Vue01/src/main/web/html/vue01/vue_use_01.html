@@ -264,6 +264,7 @@
                 <thead>
                 <tr>
                     <th>清单名称</th>
+                    <th>已采购</th>
                     <th>状态</th>
                     <th>删除</th>
                 </tr>
@@ -271,6 +272,7 @@
                 <tbody>
                 <tr v-for="(item, index) in lists">
                     <td>{{item.name}}</td>
+                    <td><input type="checkbox" v-model="item.state" @change="countSum"></td>
                     <td>{{item.state | stateFilter}}</td>
                     <td><button type="button" v-on:click="del(index)">删除</button></td>
                 </tr>
