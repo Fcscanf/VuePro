@@ -321,13 +321,27 @@ window.onload=function () {
             lists:[{name: "Phone", state: '0'},
                 {name: "Computer", state: '1'},
                 {name: "Role", state: '2'}
-            ]
+            ],
+            count:0
+        },
+        mounted() {
+            this.countSum();
         },
         methods:{
+            // 计算未采购数量
+            countSum() {
+                this.count = 0;
+                this.lists.forEach((el, index)=>{
+                    if (el.state === '0') {
+                        this.count++;
+                    }
+                })
+            },
             add:function (name) {
                 if (name) {
                     this.lists.unshift({name:name, state:'0'});
                     this.text = '';
+                    this.countSum();
                 }
             },
             del(index) {
