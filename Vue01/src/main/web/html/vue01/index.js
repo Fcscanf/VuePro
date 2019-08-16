@@ -1,6 +1,66 @@
 // 创建Vue实例
 window.onload=function () {
 
+    new Vue({
+        el: '#root-var',
+        data:{
+            shopcart:[
+                {name:"商品A", price: 15, count:2},
+                {name:"商品B", price: 17, count:2}
+            ],
+            countPrice:0,
+            num1:0,
+            num2:0
+        },
+        methods:{
+            //计算购物车总价
+            priceAll() {
+                this.shopcart.forEach((el, index) => {
+                    this.countPrice += el.price*el.count;
+                });
+            },
+            // 更新购物车商品数量
+            changeShop() {
+                this.shopcart[0].count++;
+            },
+            setComputedValue() {
+                this.num = 222;
+            }
+        },
+        computed:{
+            // 计算属性-通过forEach遍历计算
+            priceBll() {
+                var price = 0;
+                this.shopcart.forEach((el, index) => {
+                    price += el.price*el.count;
+                });
+                return price;
+            },
+            // 计算属性-通过Map计算，Map转换的结果为array，不能作加法处理
+            /*priceAllByMap() {
+                this.shopcart.map(v => {
+                    return v.price*v.count;
+                });
+            }*/
+            //
+            priceAllByReduce() {
+                return this.shopcart.reduce((total, v) => {
+                    return total + v.price*v.count;
+                }, 0)
+            },
+            // 修改计算属性---通过修改引用属性的值达到修改计算属性的值
+            num:{
+                get:function () {
+                    return this.num1+this.num2;
+                },
+                set:function (val) {
+                    console.log('set', val)
+                    this.num2 = 222;
+                }
+            }
+        }
+    });
+
     // 对象的监听-一般的监听
     var vm = new Vue({
         el: '#root-tgb',

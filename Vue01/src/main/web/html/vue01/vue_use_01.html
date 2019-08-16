@@ -12,6 +12,19 @@
 </head>
 <body>
 
+<div id="root-var">
+    <p>商品列表及价格：</p>
+    <ul>
+        <li v-for="(v, i) in shopcart">
+            名称：{{v.name}}，价格：{{v.price}}，数量：{{v.count}}
+        </li>
+    </ul>
+    <button @click="changeShop">changeShop</button>
+    <button @click="setComputedValue">setComputedValue</button>
+    <h5>商品总价：{{priceAllByReduce}}</h5>
+    <p>修改数值：{{num}}</p>
+</div>
+
 <!--对象的监听-->
 <div id="root-tgb">
     <input type="text" v-model="name">名字
