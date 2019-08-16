@@ -12,6 +12,15 @@
 </head>
 <body>
 
+<!--对象的监听-->
+<div id="root-tgb">
+    <input type="text" v-model="name">名字
+    <p>名字：{{name}}</p>
+
+    <input type="text" v-model="address.text">地址
+    <p>名字：{{address.text}}</p>
+</div>
+
 <!--兄弟组件通信-->
 <div id="com-brother">
     <com-b-1></com-b-1>

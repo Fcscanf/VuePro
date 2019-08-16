@@ -1,6 +1,55 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 对象的监听-一般的监听
+    var vm = new Vue({
+        el: '#root-tgb',
+        data:{
+            name:'Gbt',
+            address:{
+                text:'北京市'
+            }
+        },
+        watch:{
+            // 变量监听方式1
+            /*name:function (newValue, oldValue) {
+                console.log(newValue, oldValue);
+            }*/
+            // 变量监听方式2
+            /*'name':function (newValue, oldValue) {
+                console.log(newValue, oldValue);
+            }*/
+            // 变量监听方式3-调用外部方法
+            /*name:'watchName'*/
+
+            // 关联监听使用引号引用，并通过'.'监听的属性
+            // 缺点：------>>>>>>>对于N级属性无法指定，优化方法如下：<<<<<<<<<<<
+            /*'address.text':function (newValue, oldValue) {
+                console.log(newValue, oldValue);
+            }*/
+            // 关联属性监听-对于属性对象的深度、多维监听
+            address: {
+                handler: (newValue, oldValue) => {
+                    console.log(newValue, oldValue);
+                },
+                deep: true
+            }
+        },
+        methods:{
+            watchName(newValue, oldValue) {
+                console.log(newValue, oldValue);
+            }
+        },
+        components:{
+        }
+    });
+    // 变量监听方式4-将Vue对象作为变量对其进行监听以及方法调用
+    // 调用Vue实例的变量或者方法需要使用'$'
+    vm.$watch('name', function (newValue, oldValue) {
+        console.log(newValue, oldValue);
+        this.address={text:'江苏省'}
+    });
+
     // 兄弟组件通信
     // 定义空Vue对象用于接收数据
     let Bus = new Vue();
