@@ -3,15 +3,31 @@
       xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <link href="https://cdn.bootcss.com/bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="index.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
-
 </head>
 <body>
 
+<!--动画样式-->
+<div id="root-css">
+    <button @click="flag=!flag">动画</button>
+<!--    使用animate提供的样式时要animated表示使用的animated的样式-->
+    <transition enter-active-class="animated jello" leave-active-class="animated zoomOutLeft">
+        <div class="div1" v-show="flag">显示动画</div>
+    </transition>
+<!--    通过钩子函数自定义动画样式-->
+    <transition name="fade" @before-enter="beforeEnter" @enter="enter"
+    @after-enter="afterEnter" @before-leave="beforeLeave" @leave="leave"
+    @after-leave="afterLeave">
+        <div class="div1" v-show="flag">自定义动画</div>
+    </transition>
+</div>
+
+<!--计算属性的值，通过修改引用属性的值达到修改计算属性的结果-->
 <div id="root-var">
     <p>商品列表及价格：</p>
     <ul>

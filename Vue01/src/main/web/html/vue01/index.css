@@ -1,3 +1,29 @@
+.fade-leave-active {
+    transition: all 3s ease;
+}
+
+.fade-enter-active {
+    transition: all 3s ease;
+}
+
+.fade-leave-active {
+    opacity: 0;
+    width: 300px;
+    height: 10px;
+}
+
+.fade-enter {
+    opacity: 0;
+    width: 10px;
+    height: 10px;
+}
+
+.div1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+
 .a{
     border: #f60 solid 1px;
     width: 300px;

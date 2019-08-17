@@ -1,6 +1,40 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 动画样式
+    new Vue({
+        el: '#root-css',
+        data:{
+            flag:false
+        },
+        methods:{
+            beforeEnter(el) {
+                console.log('动画进入之前', el);
+                el.style.background = 'red';
+            },
+            enter() {
+                console.log('动画进入中');
+            },
+            afterEnter(el) {
+                console.log('动画进入后');
+                el.style.background = 'blue';
+            },
+            beforeLeave(el) {
+                el.innerHTML = '我要离开了';
+                console.log('动画离开之前');
+            },
+            leave() {
+                console.log('动画离开中');
+            },
+            afterLeave() {
+                console.log('动画离开后')
+            }
+        },
+        components:{
+        }
+    });
+
+    // 计算属性的值，通过修改引用属性的值达到修改计算属性的结果
     new Vue({
         el: '#root-var',
         data:{
