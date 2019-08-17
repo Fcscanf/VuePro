@@ -1,6 +1,43 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 路由
+    let Home = Vue.component('Home', {
+        template: "<h2>Home</h2>"
+    });
+    let News = Vue.component('News', {
+        template: "<h2>News</h2>"
+    });
+    let One = Vue.component('One', {
+        template: "#one"
+    });
+    // 配置路由
+    let routes = [
+        {path: '/home', component: Home},
+        {path: '/news', component: News},
+        // 配置带参数的路由,参数需要使用：使用的是Restful风格
+        {path: '/one/:id', component: One},
+        // 配置默认路由-通过重定向
+        {path: '/*', redirect:'/home'}
+    ];
+    // 定义路由
+    let router = new VueRouter({
+        routes,
+        // 设置路由样式
+        linkActiveClass:'active'
+    });
+    new Vue({
+        el: '#root-router',
+        data:{
+            id: 100
+        },
+        methods:{
+        },
+        components:{
+        },
+        router
+    });
+
     // 动画样式
     new Vue({
         el: '#root-css',

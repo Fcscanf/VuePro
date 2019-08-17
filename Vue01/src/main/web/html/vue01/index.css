@@ -1,3 +1,9 @@
+/*定义路由样式*/
+.active {
+    color: #0c5460;
+}
+
+/*定义钩子函数的样式name-style*/
 .fade-leave-active {
     transition: all 3s ease;
 }

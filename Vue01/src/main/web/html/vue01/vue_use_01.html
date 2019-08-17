@@ -6,11 +6,28 @@
     <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/3.1.2/vue-router.js"></script>
     <script src="index.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+<!--路由-->
+<div id="root-router">
+<!--    路由输出显示-->
+    <router-link to="/home">Home</router-link>
+    <router-link to="/news">News</router-link>
+<!--    配置绑定才会被解析-->
+    <router-link :to="'/one/'+id">One</router-link>
+    <div><router-view></router-view></div>
+</div>
+<template id="one">
+    <div>
+<!--        读取路由的参数,引用内部参数使用'$'-->
+        <h2>One{{$route.params.id}}</h2>
+    </div>
+</template>
 
 <!--动画样式-->
 <div id="root-css">
