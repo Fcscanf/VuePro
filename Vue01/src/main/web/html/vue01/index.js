@@ -1,20 +1,42 @@
 // 创建Vue实例
 window.onload=function () {
 
+    // 参数传递、子路由、路由跳转
+    let Login = Vue.component('Login', {
+        template: '#login'
+    });
     // 路由
     let Home = Vue.component('Home', {
         template: "<h2>Home</h2>"
     });
+    // 模板中的数据将以函数的形式返回
     let News = Vue.component('News', {
-        template: "<h2>News</h2>"
+        template: "#news",
+        data() {
+            return{
+                uname: "Fcant",
+                pwd: "123"
+            }
+        }
     });
     let One = Vue.component('One', {
         template: "#one"
     });
+    let Register = Vue.component('Register', {
+        template: "#register"
+    });
     // 配置路由
     let routes = [
         {path: '/home', component: Home},
-        {path: '/news', component: News},
+        {
+            path:"/news",
+            component: News,
+            children: [
+                {path: '/news/login/:uname/:pwd', component: Login},
+                {path: '/news/register', component: Register}
+            ]
+        },
+        // {path: '/news', component: News},
         // 配置带参数的路由,参数需要使用：使用的是Restful风格
         {path: '/one/:id', component: One},
         // 配置默认路由-通过重定向

@@ -13,6 +13,34 @@
 </head>
 <body>
 
+<!--参数传递、子路由、路由跳转-->
+<template id="news">
+    <div>
+        <h2>用户信息</h2>
+        <ul>
+            <li>
+                <router-link :to="'/news/login/'+uname+'/'+pwd">登录</router-link>
+                <router-link :to="'/news/register'">注册</router-link>
+            </li>
+        </ul>
+        <router-view></router-view>
+    </div>
+</template>
+<template id="login">
+    <div>
+        <h3>用户登录</h3>
+        用户名：<input>
+        密码：<input>
+    </div>
+</template>
+<template id="register">
+    <div>
+        <h3>用户注册</h3>
+        用户名：<input>
+        密码：<input>
+    </div>
+</template>
+
 <!--路由-->
 <div id="root-router">
 <!--    路由输出显示-->
