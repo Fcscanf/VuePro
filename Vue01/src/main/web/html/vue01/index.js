@@ -54,6 +54,10 @@ window.onload=function () {
             id: 100
         },
         methods:{
+            // 页面路由跳转
+            goNews() {
+                router.push({path: '/news'})
+            }
         },
         components:{
         },
