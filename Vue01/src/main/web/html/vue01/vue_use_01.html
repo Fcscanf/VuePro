@@ -19,8 +19,10 @@
         <h2>用户信息</h2>
         <ul>
             <li>
+<!--                Restful风格参数传递-->
                 <router-link :to="'/news/login/'+uname+'/'+pwd">登录</router-link>
-                <router-link :to="'/news/register'">注册</router-link>
+<!--                第二种参数传递方式-->
+                <router-link :to="'/news/register?uname=Fcant'">注册</router-link>
             </li>
         </ul>
         <router-view></router-view>
@@ -29,14 +31,14 @@
 <template id="login">
     <div>
         <h3>用户登录</h3>
-        用户名：<input>
+        用户名：{{$route.params.uname}}<input>
         密码：<input>
     </div>
 </template>
 <template id="register">
     <div>
         <h3>用户注册</h3>
-        用户名：<input>
+        用户名：{{$route.query.uname}}<input>
         密码：<input>
     </div>
 </template>
