@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/3.1.2/vue-router.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>计算属性computed的使用</title>
+</head>
+<body>
+<div align="center">
+    <h1>
+        计算属性computed的使用
+    </h1>
+</div>
+<div id="app">
+    <input type="text" v-model="firstname">+
+    <input type="text" v-model="lastname">=
+    <input type="text" v-model="fullname">
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            firstname:'',
+            lastname:''
+        },
+        methods:{
+        },
+        // 在computed中，可以定义一些属性，这些属性，这些属性为计算属性，计算属性的本质就是一个方法
+        // 在使用计算属性时，把名称直接当作属性来使用，并不会把计算属性当作方法去调用
+        //    计算属性在调用时不用加()调用，当作普通属性去调用
+        //    内部依赖的任何属性变化结果都会发生变化
+        //    计算属性求值结果会被进行缓存，便于下次调用
+        computed: {
+            'fullname':function () {
+                return this.firstname + '-' + this.lastname
+            }
+        }
+    });
+</script>
+</html>
