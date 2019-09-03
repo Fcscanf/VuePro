@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue-router/3.1.2/vue-router.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>使用render函数渲染组件</title>
+</head>
+<body>
+<div align="center">
+    <h1>
+        使用render函数渲染组件
+    </h1>
+</div>
+<div id="app">
+</div>
+</body>
+<script>
+
+    var login = {
+        template: '<h1>登录</h1>'
+    }
+    new Vue({
+        el: '#app',
+        data:{
+        },
+        methods:{
+        },
+        components:{
+        },
+        render:function (createElements) {
+            // createElements是一个方法，调用它能够把指定的组件模板渲染为html结构
+            // 使用return直接会将el容器的内容进行替换
+            return createElements(login)
+        }
+    });
+</script>
+</html>
